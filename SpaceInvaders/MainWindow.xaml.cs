@@ -30,7 +30,7 @@ namespace SpaceInvaders
         List<Rectangle> itemRemover = new List<Rectangle>();
         Random rand = new Random();
 
-        public int hp ;
+        public int hp;
         public int Difficulty;
         int enemySpriteCounter = 0;
         int enemyCounter = 100;

@@ -17,12 +17,13 @@ namespace SpaceInvaders
         public OptionsWindow()
         {
             Window1 window1 = new Window1();
-            var start = Start_Options;
+           
             var back = Back_click;
             Height = 600;
             Width = 400;
             Background = Brushes.Black;
             Title = "Options";
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Icon = new BitmapImage(new Uri(@"X:\coding\C#\Wpf\SpaceInvaders\SpaceInvaders\images\icon.png"));
 
             Grid mainGrid = new Grid();
@@ -34,8 +35,8 @@ namespace SpaceInvaders
             // Beállítjuk a Sliderek tulajgaidonsát
             HpSlider.Name = "hpSlider";
             HpSlider.Minimum = 1;
-            HpSlider.Maximum = 100;
-            HpSlider.Value = 100;
+            HpSlider.Maximum = 99;
+            HpSlider.Value = 99;
             HpSlider.Width = 200;
             HpSlider.TickPlacement = System.Windows.Controls.Primitives.TickPlacement.BottomRight;
             HpSlider.TickFrequency = 10;
@@ -59,14 +60,7 @@ namespace SpaceInvaders
             label1.Foreground = Brushes.White;
 
 
-            Button button = new Button();
-            button.Content = "Start";
-            button.Foreground = Brushes.White;
-            button.Height = 100;
-            button.Width = 300;
-            button.FontSize = 30;
-            button.Background = Brushes.Transparent;
-            button.Click += new RoutedEventHandler(start);
+            
 
             Button close = new Button();
             close.Content = "Back";
@@ -91,10 +85,6 @@ namespace SpaceInvaders
             Grid.SetRow(DiffSlider, 1);
             mainGrid.Children.Add(DiffSlider);
 
-
-            Grid.SetRow(button, 2);
-            mainGrid.Children.Add(button);
-
             Grid.SetRow(close, 3);
             mainGrid.Children.Add(close);
 
@@ -109,36 +99,11 @@ namespace SpaceInvaders
         {
            
             Window1 window1 = new Window1();
-            OptionsWindow optionsWindow = new OptionsWindow();
-
-
+           
 
             window1.Show();
 
             this.Close();
-
-
-
-
-        }
-        public void Start_Options(object sender, RoutedEventArgs e)
-        {
-            // Létrehozzuk az OptionsWindow objektumot
-            OptionsWindow optionsWindow = new OptionsWindow();
-
-           
-
-            // Az új ablak létrehozása és a hp tulajdonság beállítása
-            MainWindow existingWindow = new MainWindow();
-            existingWindow.hp = (int)HpSlider.Value;
-            existingWindow.Difficulty = (int)DiffSlider.Value;
-
-            // Az új ablak létrehozása és a hp tulajdonság beállítása
-            this.Close();
-
-            existingWindow.Show();
-
-            // Az aktuális ablak bezárása
 
         }
     }
@@ -152,6 +117,18 @@ namespace SpaceInvaders
 
         public void Start_Game(object sender, RoutedEventArgs e)
         {
+            MainWindow existingWindow = new MainWindow();
+            OptionsWindow optionsWindow= new OptionsWindow();
+
+            existingWindow.hp = (int)optionsWindow.HpSlider.Value;
+            existingWindow.Difficulty = (int)optionsWindow.DiffSlider.Value;
+
+            this.Close();
+
+            existingWindow.Show();
+        }
+        private void Options(object sender, RoutedEventArgs e)
+        {
             // Létrehozzuk az OptionsWindow objektumot
             OptionsWindow optionsWindow = new OptionsWindow();
 
@@ -162,7 +139,6 @@ namespace SpaceInvaders
             this.Close();
         }
 
-   
 
         private void Enter(object sender, System.Windows.Input.MouseEventArgs e)
         {
@@ -183,6 +159,10 @@ namespace SpaceInvaders
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            Application.Current.Shutdown();
+
         }
+
+
     }
 }

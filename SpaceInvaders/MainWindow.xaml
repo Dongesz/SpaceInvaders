@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpaceInvaders"
         Icon="X:\coding\C#\Wpf\SpaceInvaders\SpaceInvaders\images\icon.png"
-        Title="MainWindow" Height="615" Width="540">
+        Title="MainWindow" Height="615" Width="540"
+        WindowStartupLocation="CenterScreen">
     <Canvas Name="MyCanvas" Focusable="True" Background="Black" KeyDown="OnKeyDown" KeyUp="OnKeyUp" Margin="0,4,0,-4">
 
         <Rectangle Name="player" Height="50" Width="60" Fill="Yellow" Canvas.Left="246" Canvas.Top="498" />

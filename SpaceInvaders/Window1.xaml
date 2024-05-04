@@ -6,14 +6,17 @@
         xmlns:local="clr-namespace:SpaceInvaders"
         mc:Ignorable="d"
         Title="Space Invaders Ripoff" Height="615" Width="540"
-        Icon="X:\coding\C#\Wpf\SpaceInvaders\SpaceInvaders\images\icon.png">
+        Icon="X:\coding\C#\Wpf\SpaceInvaders\SpaceInvaders\images\icon.png"
+        WindowStartupLocation="CenterScreen">
 
 
     <Canvas Name="MyCanvas" Focusable="True" Background="Black" Margin="0,4,0,-4">
 
         <Button  Content="Play" Canvas.Left="172" Canvas.Top="152" Height="88" Width="196" FontSize="30" Background="Transparent" Foreground="White" Click="Start_Game" HorizontalAlignment="Center" VerticalAlignment="Top" MouseEnter="Enter" MouseLeave="Leave" />
 
-        <Button Content="Exit" Canvas.Left="172" Canvas.Top="280" Height="88" Width="196" FontSize="30" Background="Transparent" Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Top" MouseEnter="Enter" MouseLeave="Leave" Click="Button_Click"/>
+        <Button  Content="Options" Canvas.Left="172" Canvas.Top="278" Height="88" Width="196" FontSize="30" Background="Transparent" Foreground="White" Click="Options" HorizontalAlignment="Center" VerticalAlignment="Top" MouseEnter="Enter" MouseLeave="Leave" />
+
+        <Button Content="Exit" Canvas.Left="172" Canvas.Top="431" Height="88" Width="196" FontSize="30" Background="Transparent" Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Top" MouseEnter="Enter" MouseLeave="Leave" Click="Button_Click"/>
 
         <Label Content="Alien Mayhem" Foreground="White" FontSize="50" Canvas.Left="107" Canvas.Top="39" FontFamily="pack://application:,,,/#Bitmap" />
 
