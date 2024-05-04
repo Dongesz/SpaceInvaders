@@ -1,0 +1,21 @@
+﻿<Window x:Class="SpaceInvaders.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SpaceInvaders"
+        mc:Ignorable="d"
+        Title="Space Invaders Ripoff" Height="615" Width="540"
+        Icon="X:\coding\C#\Wpf\SpaceInvaders\SpaceInvaders\images\icon.png">
+
+
+    <Canvas Name="MyCanvas" Focusable="True" Background="Black" Margin="0,4,0,-4">
+
+        <Button  Content="Play" Canvas.Left="172" Canvas.Top="152" Height="88" Width="196" FontSize="30" Background="Transparent" Foreground="White" Click="Start_Game" HorizontalAlignment="Center" VerticalAlignment="Top" MouseEnter="Enter" MouseLeave="Leave" />
+
+        <Button Content="Exit" Canvas.Left="172" Canvas.Top="280" Height="88" Width="196" FontSize="30" Background="Transparent" Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Top" MouseEnter="Enter" MouseLeave="Leave" Click="Button_Click"/>
+
+        <Label Content="Alien Mayhem" Foreground="White" FontSize="50" Canvas.Left="107" Canvas.Top="39" FontFamily="pack://application:,,,/#Bitmap" />
+
+    </Canvas>
+</Window>
