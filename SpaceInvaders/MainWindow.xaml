@@ -8,12 +8,9 @@
         Title="MainWindow" Height="615" Width="540"
         WindowStartupLocation="CenterScreen">
     <Canvas Name="MyCanvas" Focusable="True" Background="Black" KeyDown="OnKeyDown" KeyUp="OnKeyUp" Margin="0,4,0,-4">
-
         <Rectangle Name="player" Height="50" Width="60" Fill="Yellow" Canvas.Left="246" Canvas.Top="498" />
-
         <Label Name="scoretext" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White" />
         <Label Name="hptext" Content="Hp: 0" FontSize="18" FontWeight="Bold" Foreground="White" Canvas.Left="443" HorizontalAlignment="Left" VerticalAlignment="Center" />
-
     </Canvas>
 </Window>
 

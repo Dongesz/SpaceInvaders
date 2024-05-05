@@ -15,9 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 using System.Windows.Threading;
-
 namespace SpaceInvaders
 {
     /// <summary>
@@ -60,10 +58,7 @@ namespace SpaceInvaders
             ImageBrush playerImage = new ImageBrush();
             playerImage.ImageSource = new BitmapImage(new Uri("X:\\coding\\C#\\Wpf\\SpaceInvaders\\SpaceInvaders\\images\\player.png"));
             player.Fill = playerImage;
-
-            
         }
-
         private void GameLoop(object sender, EventArgs e)
         {
             playerHitBox = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
@@ -150,7 +145,6 @@ namespace SpaceInvaders
                 case 3:
                     enemySpeed = 30;
                     break;
-
             }
             if (score >= 10)
             {

@@ -37,7 +37,7 @@ namespace SpaceInvaders
             HpSlider.Name = "hpSlider";
             HpSlider.Minimum = 1;
             HpSlider.Maximum = 99;
-            HpSlider.Value = HpSlider.Value;
+            HpSlider.Value = 100;
             HpSlider.Width = 200;
             HpSlider.TickPlacement = System.Windows.Controls.Primitives.TickPlacement.BottomRight;
             HpSlider.TickFrequency = 10;
@@ -45,7 +45,7 @@ namespace SpaceInvaders
             DiffSlider.Name = "DiffSlider";
             DiffSlider.Minimum = 1;
             DiffSlider.Maximum = 3;
-            DiffSlider.Value = DiffSlider.Value;
+            DiffSlider.Value = 1;
             DiffSlider.Width = 200;
             DiffSlider.TickPlacement = System.Windows.Controls.Primitives.TickPlacement.BottomRight;
             DiffSlider.TickFrequency = 10;
@@ -60,9 +60,6 @@ namespace SpaceInvaders
             label1.Content = "Difficulty: ";
             label1.Foreground = Brushes.White;
 
-
-            
-
             Button close = new Button();
             close.Content = "Back";
             close.Foreground = Brushes.White;
@@ -71,9 +68,6 @@ namespace SpaceInvaders
             close.FontSize = 30;
             close.Background = Brushes.Transparent;
             close.Click += new RoutedEventHandler(back);
-
-
-
 
             // Hozzáadjuk a slidereket a Grid-hez
             Grid.SetRow(label, 0);
@@ -92,14 +86,11 @@ namespace SpaceInvaders
             HpSlider.Value = StartingHp;
             DiffSlider.Value = Difficulty;
 
-
             // Beállítjuk a Grid-et az ablak tartalmára
-            this.Content = mainGrid;
-            
+            this.Content = mainGrid;    
         }
         public void Back_click(object sender, RoutedEventArgs e)
         {
-           
             Window1 window1 = new Window1();
 
             StartingHp = (int)HpSlider.Value;
@@ -108,7 +99,6 @@ namespace SpaceInvaders
             window1.Show();
 
             this.Close();
-
         }
     }
 
@@ -117,7 +107,6 @@ namespace SpaceInvaders
         public Window1()
         {
             InitializeComponent();
-
         }
 
         public void Start_Game(object sender, RoutedEventArgs e)
@@ -134,16 +123,12 @@ namespace SpaceInvaders
         }
         private void Options(object sender, RoutedEventArgs e)
         {
-            // Létrehozzuk az OptionsWindow objektumot
             OptionsWindow optionsWindow = new OptionsWindow();
 
-            // Az OptionsWindow megjelenítése
             optionsWindow.Show();
 
-            // Az aktuális ablak bezárása
             this.Close();
         }
-
 
         private void Enter(object sender, System.Windows.Input.MouseEventArgs e)
         {
@@ -161,13 +146,10 @@ namespace SpaceInvaders
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Exit(object sender, RoutedEventArgs e)
         {
             this.Close();
             Application.Current.Shutdown();
-
         }
-
-
     }
 }
