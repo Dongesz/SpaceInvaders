@@ -9,16 +9,17 @@ namespace SpaceInvaders
 {
     public partial class OptionsWindow : Window
     {
-        // Definiáljuk a hpSlider-t publikus tulajdonságként
+       
         public Slider HpSlider { get; } = new Slider();
         public Slider DiffSlider { get; } = new Slider();
+        public static int StartingHp { get; set; }
+        public static int Difficulty { get; set; }
 
 
         public OptionsWindow()
         {
-            Window1 window1 = new Window1();
            
-            var back = Back_click;
+            var back = Back_click; 
             Height = 600;
             Width = 400;
             Background = Brushes.Black;
@@ -36,7 +37,7 @@ namespace SpaceInvaders
             HpSlider.Name = "hpSlider";
             HpSlider.Minimum = 1;
             HpSlider.Maximum = 99;
-            HpSlider.Value = 99;
+            HpSlider.Value = HpSlider.Value;
             HpSlider.Width = 200;
             HpSlider.TickPlacement = System.Windows.Controls.Primitives.TickPlacement.BottomRight;
             HpSlider.TickFrequency = 10;
@@ -44,7 +45,7 @@ namespace SpaceInvaders
             DiffSlider.Name = "DiffSlider";
             DiffSlider.Minimum = 1;
             DiffSlider.Maximum = 3;
-            DiffSlider.Value = 3;
+            DiffSlider.Value = DiffSlider.Value;
             DiffSlider.Width = 200;
             DiffSlider.TickPlacement = System.Windows.Controls.Primitives.TickPlacement.BottomRight;
             DiffSlider.TickFrequency = 10;
@@ -88,7 +89,8 @@ namespace SpaceInvaders
             Grid.SetRow(close, 3);
             mainGrid.Children.Add(close);
 
-
+            HpSlider.Value = StartingHp;
+            DiffSlider.Value = Difficulty;
 
 
             // Beállítjuk a Grid-et az ablak tartalmára
@@ -99,7 +101,9 @@ namespace SpaceInvaders
         {
            
             Window1 window1 = new Window1();
-           
+
+            StartingHp = (int)HpSlider.Value;
+            Difficulty = (int)DiffSlider.Value;
 
             window1.Show();
 
@@ -113,6 +117,7 @@ namespace SpaceInvaders
         public Window1()
         {
             InitializeComponent();
+
         }
 
         public void Start_Game(object sender, RoutedEventArgs e)
@@ -120,8 +125,8 @@ namespace SpaceInvaders
             MainWindow existingWindow = new MainWindow();
             OptionsWindow optionsWindow= new OptionsWindow();
 
-            existingWindow.hp = (int)optionsWindow.HpSlider.Value;
-            existingWindow.Difficulty = (int)optionsWindow.DiffSlider.Value;
+            existingWindow.hp = OptionsWindow.StartingHp;
+            existingWindow.Difficulty = OptionsWindow.Difficulty;
 
             this.Close();
 
